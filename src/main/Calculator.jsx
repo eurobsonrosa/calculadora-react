@@ -35,16 +35,16 @@ export default class Calculator extends Component {
             const values = [...this.state.values]
             switch (currentOperation) {
                 case '+':
-                    values[0] = (values[0] + values[1]).toFixed(2)
+                    values[0] = (values[0] + values[1])
                     break
                 case '-':
-                    values[0] = (values[0] - values[1]).toFixed(2)
+                    values[0] = (values[0] - values[1])
                     break
                 case '*':
-                    values[0] = (values[0] * values[1]).toFixed(2)
+                    values[0] = (values[0] * values[1])
                     break
                 case '/':
-                    values[0] = (values[0] / values[1]).toFixed(2)
+                    values[0] = (values[0] / values[1])
                     break
                 default:
                     values[0] = this.state.values[0]
@@ -58,7 +58,7 @@ export default class Calculator extends Component {
             }
 
             this.setState({
-                displayValue: values[0],
+                displayValue: values[0].toFixed(2),
                 operation: equals ? null : operation,
                 current: equals ? 0 : 1,
                 clearDisplay: !equals,
@@ -68,7 +68,7 @@ export default class Calculator extends Component {
     }
     
     addDigito(n) {
-        
+
         const i = this.state.current
 
         if (n === '.' && !Number.isInteger(this.state.values[i])) {
